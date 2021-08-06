@@ -24,25 +24,17 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService service;
-		
+
 	@GetMapping("/getempbyid/{id}")
 	public Employee getEmpById(@PathVariable("id") int id) {
 		LOG.info("getEmpById EmployeeController " + id);
-	return service.getEmployeeById(id);
+		return service.getEmployeeById(id);
 	}
-	
-	@PostMapping("/addnewemp")	
+
+	@PostMapping("/addnewemp")
 	public Employee addNewEmp(@RequestBody Employee employee) {
 		LOG.info("addNewEmp EmployeeController");
 		return service.addNewEmployee(employee);
 	}
-	
 
-//	@PostMapping("/addemp")
-//	public Employee addEmp() {
-//		LOG.info("emp invoked.");
-//	return new Employee(101, "Sonu", 10.5);
-//	}
-	
-	
 }
