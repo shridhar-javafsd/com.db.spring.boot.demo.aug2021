@@ -7,7 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
 
-	@Id
+	@Id // primary key 
+	@Column
 	private int id;
 	@Column
 	private String firstName;

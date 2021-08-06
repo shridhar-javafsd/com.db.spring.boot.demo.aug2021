@@ -1,12 +1,16 @@
 package com.db.spring.boot.demo.aug2021.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,10 +35,28 @@ public class EmployeeController {
 		return service.getEmployeeById(id);
 	}
 
+	@GetMapping("/getallemps")
+	public List<Employee> getAllEmps() {
+		LOG.info("getAllEmps EmployeeController ");
+		return service.getAllEmployees();
+	}
+
 	@PostMapping("/addnewemp")
 	public Employee addNewEmp(@RequestBody Employee employee) {
 		LOG.info("addNewEmp EmployeeController");
 		return service.addNewEmployee(employee);
+	}
+
+	@PutMapping("/updateemp")
+	public Employee updateEmp(@RequestBody Employee employee) {
+		LOG.info("addNewEmp EmployeeController");
+		return service.updateEmployee(employee);
+	}
+
+	@DeleteMapping("/deleteemp/{id}")
+	public int deleteEmp(@PathVariable("id") int id) {
+		LOG.info("deleteEmp EmployeeController");
+		return service.deleteEmployee(id);
 	}
 
 }
