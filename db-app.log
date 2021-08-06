@@ -82,3 +82,4 @@
 2021-08-06 09:40:43.787  INFO 4540 --- [http-nio-8082-exec-2] c.d.s.b.d.a.service.EmployeeService      : getEmployeeById EmployeeService
 2021-08-06 09:41:01.186  INFO 4540 --- [http-nio-8082-exec-3] c.d.s.b.d.a.c.EmployeeController         : getEmpById EmployeeController 103
 2021-08-06 09:41:01.187  INFO 4540 --- [http-nio-8082-exec-3] c.d.s.b.d.a.service.EmployeeService      : getEmployeeById EmployeeService
+2021-08-06 09:49:09.297  INFO 4540 --- [restartedMain] c.d.s.boot.demo.aug2021.Application      : Start
