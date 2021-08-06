@@ -3,6 +3,7 @@ package com.db.spring.boot.demo.aug2021.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.db.spring.boot.demo.aug2021.model.Employee;
 import com.db.spring.boot.demo.aug2021.service.EmployeeService;
 
 @RestController
+//@CrossOrigin(origins = "localhost:3001")
 public class EmployeeController {
 
 	// HTTP requests - GET, POST, PUT, DELETE
@@ -29,13 +31,11 @@ public class EmployeeController {
 	return service.getEmployeeById(id);
 	}
 	
-	
-	@PostMapping("/addnewemp")
+	@PostMapping("/addnewemp")	
 	public Employee addNewEmp(@RequestBody Employee employee) {
 		LOG.info("addNewEmp EmployeeController");
 		return service.addNewEmployee(employee);
 	}
-	
 	
 
 //	@PostMapping("/addemp")
