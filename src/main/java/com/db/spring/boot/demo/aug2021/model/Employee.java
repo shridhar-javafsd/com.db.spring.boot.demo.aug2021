@@ -1,10 +1,17 @@
 package com.db.spring.boot.demo.aug2021.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Employee {
 
+	@Id
 	private int id;
+	@Column
 	private String firstName;
+	@Column
 	private double salary;
 
 // getters, setters, constructors, toString
