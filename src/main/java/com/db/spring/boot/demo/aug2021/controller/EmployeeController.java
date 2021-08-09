@@ -17,6 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.db.spring.boot.demo.aug2021.model.Employee;
 import com.db.spring.boot.demo.aug2021.service.EmployeeService;
 
+// try swagger 
+
+/**
+ * 
+ * @author Vaman Deshmukh
+ * @since 2.3.1
+ *
+ */
+
 @RestController
 //@CrossOrigin(origins = "localhost:3001")
 public class EmployeeController {
@@ -28,6 +37,21 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService service;
+
+	@GetMapping("/getempbyfirstname/{firstName}")
+	public List<Employee> getEmpByFirstName(@PathVariable("firstName") String firstName) {
+		LOG.info("getEmpByFirstName EmployeeController " + firstName);
+		return service.getEmployeeByFirstName(firstName);
+	}
+
+	/**
+	 * @param id
+	 * @return Employee object
+	 * 
+	 *         Returns Employee object based in the id value input by end user
+	 *         throws ValueNotFoundException
+	 * 
+	 */
 
 	@GetMapping("/getempbyid/{id}")
 	public Employee getEmpById(@PathVariable("id") int id) {
@@ -57,6 +81,11 @@ public class EmployeeController {
 	public int deleteEmp(@PathVariable("id") int id) {
 		LOG.info("deleteEmp EmployeeController");
 		return service.deleteEmployee(id);
+	}
+
+	public int add(int a, int b) {
+		LOG.info("add() invoked.");
+		return a + b;
 	}
 
 }

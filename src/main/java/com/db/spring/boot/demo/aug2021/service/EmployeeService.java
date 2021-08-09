@@ -18,6 +18,11 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository repository;
 
+	public List<Employee> getEmployeeByFirstName(String firstName) {
+		LOG.info("getEmployeeByFirstName EmployeeService");
+		return repository.findByFirstName(firstName);
+	}
+
 	public Employee getEmployeeById(int id) {
 		LOG.info("getEmployeeById EmployeeService");
 //		return new Employee(101, "Sonu", 10.5);
