@@ -20,7 +20,9 @@ public class EmployeeService {
 
 	public List<Employee> getEmployeeByFirstName(String firstName) {
 		LOG.info("getEmployeeByFirstName EmployeeService");
+//		repository.
 		return repository.findByFirstName(firstName);
+		
 	}
 
 	public Employee getEmployeeById(int id) {

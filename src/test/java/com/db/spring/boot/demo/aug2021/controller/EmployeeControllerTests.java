@@ -37,6 +37,7 @@ public class EmployeeControllerTests {
 	EmployeeService employeeService;
 
 	public static List<Employee> empList;
+	public static List<Employee> empListByName;
 
 	@BeforeAll
 	public static void createEmpData() {
@@ -45,12 +46,29 @@ public class EmployeeControllerTests {
 		empList.add(new Employee(102, "Monu", 20.5));
 		empList.add(new Employee(103, "Tonu", 15.5));
 		LOG.info(empList.toString());
+
+		empListByName = new ArrayList<>();
+		empListByName.add(new Employee(101, "Sonu", 10.5));
+		empListByName.add(new Employee(103, "Sonu", 15.5));
+		LOG.info(empListByName.toString());
 	}
 
 	@AfterAll
 	public static void nullifyEmpData() {
 		empList = null;
+		empListByName = null;
 //		connection.close();
+	}
+
+	@Test
+	public void testgetEmpByFirstName() throws Exception {
+
+		LOG.info("testgetEmpByFirstName using andExpect()");
+
+		Mockito.when(employeeService.getEmployeeByFirstName("Sonu")).thenReturn(empListByName);
+
+		mockMvc.perform(get("/getempbyfirstname/Sonu")).andExpect(status().isOk());
+		mockMvc.perform(get("/getempbyfirstname/Sonu")).andExpect(jsonPath("$", Matchers.hasSize(2)));
 	}
 
 	@Test

@@ -3,11 +3,13 @@ package com.db.spring.boot.demo.aug2021.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
 
+//@NamedNativeQuery(name="")
 @Entity
 public class Employee {
 
-	@Id // primary key 
+	@Id // primary key
 	@Column
 	private int id;
 	@Column
